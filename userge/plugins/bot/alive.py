@@ -227,13 +227,12 @@ class Bot_Alive:
     @staticmethod
     def alive_info() -> str:
         alive_info_ = f"""
-<a href="https://telegram.dog/x_xtests"><b>USERGE-X</a> Deve estar funcionando, né.</b>
- ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖
+<a href="https://telegram.dog/x_xtests"><b>USERGE-X</a> is Up and Running.</b>
+
   🐍   <b>Python :</b>    <code>v{versions.__python_version__}</code>
   🔥   <b>Pyrogram :</b>    <code>v{versions.__pyro_version__}</code>
   🧬   <b>𝑿 :</b>    <code>v{get_version()}</code>
-  👑   <b>My Master:</b>    @CrazyBlackBerryBot
-➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖
+  
 <b>{Bot_Alive._get_mode()}</b>    <code>|</code>    🕔  <b>{userge.uptime}</b>
 """
         return alive_info_
@@ -258,8 +257,12 @@ class Bot_Alive:
 
     @staticmethod
     def alive_default_imgs() -> str:
-        alive_imgs = [
-            "https://telegra.ph/file/13896c7a27a47cc5a2436.jpg"
+        alive_imgs = [  
+            "https://telegra.ph/file/11123ef7dff2f1e19e79d.jpg",
+            "https://i.imgur.com/uzKdTXG.jpg",
+            "https://telegra.ph/file/6ecab390e4974c74c3764.png",
+            "https://telegra.ph/file/995c75983a6c0e4499b55.png",
+            "https://telegra.ph/file/86cc25c78ad667ca5e691.png",
         ]
         return rand_array(alive_imgs)
 
