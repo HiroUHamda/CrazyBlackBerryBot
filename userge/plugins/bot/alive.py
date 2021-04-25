@@ -227,7 +227,7 @@ class Bot_Alive:
     @staticmethod
     def alive_info() -> str:
         alive_info_ = f"""
-<a Deve estar funcionando, né...</b>
+<a href=Deve tá funcionando, né1?</b>
 ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖
   🐍   <b>Python :</b>    <code>v{versions.__python_version__}</code>
   🔥   <b>Pyrogram :</b>    <code>v{versions.__pyro_version__}</code>
