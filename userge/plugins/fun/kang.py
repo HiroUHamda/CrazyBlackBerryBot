@@ -59,19 +59,19 @@ async def kang_(message: Message):
             is_anim = True
         elif replied.sticker:
             if not replied.sticker.file_name:
-                await message.edit("`Sticker has no Name!`")
+                await message.edit("`O Sticker não tem nome!`")
                 return
             emoji_ = replied.sticker.emoji
             is_anim = replied.sticker.is_animated
             if not replied.sticker.file_name.endswith(".tgs"):
                 resize = True
         else:
-            await message.edit("`Unsupported File!`")
+            await message.edit("`Arquino não suportado!`")
             return
         await message.edit(f"`{random.choice(KANGING_STR)}`")
         photo = await userge.download_media(message=replied, file_name=Config.DOWN_PATH)
     else:
-        await message.edit("`I can't kang that...`")
+        await message.edit("`Não consigo roubar isso...`")
         return
     if photo:
         args = message.filtered_input_str.split()
@@ -115,7 +115,7 @@ async def kang_(message: Message):
                 try:
                     await conv.send_message("/addsticker")
                 except YouBlockedUser:
-                    await message.edit("first **unblock** @Stickers")
+                    await message.edit("Primeiro **desbloqueie** @Stickers")
                     return
                 await conv.get_response(mark_read=True)
                 await conv.send_message(packname)
@@ -157,20 +157,20 @@ async def kang_(message: Message):
                             await message.delete()
                         else:
                             out = (
-                                "__kanged__"
+                                "__Roubado__"
                                 if "-s" in message.flags
                                 else f"[kanged](t.me/addstickers/{packname})"
                             )
                             await message.edit(
-                                f"**Sticker** {out} __in a Different Pack__**!**"
+                                f"**Sticker** {out} __em um pack Diferente__**!**"
                             )
                         return
                 await conv.send_document(photo)
                 rsp = await conv.get_response(mark_read=True)
                 if "Sorry, the file type is invalid." in rsp.text:
                     await message.edit(
-                        "`Failed to add sticker, use` @Stickers "
-                        "`bot to add the sticker manually.`"
+                        "`Falha ao adicionar, use` @Stickers "
+                        "`bot para adicionar o sticker manualmente.`"
                     )
                     return
                 await conv.send_message(emoji_)
@@ -183,7 +183,7 @@ async def kang_(message: Message):
                 try:
                     await conv.send_message(cmd)
                 except YouBlockedUser:
-                    await message.edit("first **unblock** @Stickers")
+                    await message.edit("Primeiro **desbloqueie** @Stickers")
                     return
                 await conv.get_response(mark_read=True)
                 await conv.send_message(packnick)
@@ -192,8 +192,8 @@ async def kang_(message: Message):
                 rsp = await conv.get_response(mark_read=True)
                 if "Sorry, the file type is invalid." in rsp.text:
                     await message.edit(
-                        "`Failed to add sticker, use` @Stickers "
-                        "`bot to add the sticker manually.`"
+                        "`Falha ao adicionar o Sticker, use` @Stickers "
+                        "`bot para adicionar manualmente.`"
                     )
                     return
                 await conv.send_message(emoji_)
@@ -211,11 +211,11 @@ async def kang_(message: Message):
             await message.delete()
         else:
             out = (
-                "__kanged__"
+                "__roubado__"
                 if "-s" in message.flags
                 else f"[kanged](t.me/addstickers/{packname})"
             )
-            await message.edit(f"**Sticker** {out}**!**")
+            await message.edit(f"**Sticker** {out}**com sucesso, me processa hehe!**")
         if os.path.exists(str(photo)):
             os.remove(photo)
 
@@ -231,12 +231,12 @@ async def sticker_pack_info_(message: Message):
     """ get sticker pack info """
     replied = message.reply_to_message
     if not replied:
-        await message.edit("`I can't fetch info from nothing, can I ?!`")
+        await message.edit("`Eu não posso encontrar informação sozinho, tú pode ?!`")
         return
     if not replied.sticker:
-        await message.edit("`Reply to a sticker to get the pack details`")
+        await message.edit("`Responda ao sticker para que eu possa roubá-lo.`")
         return
-    await message.edit("`Fetching details of the sticker pack, please wait..`")
+    await message.edit("`Buscando detalhes do Sticker Pack, te acalma..`")
     get_stickerset = await message.client.send(
         GetStickerSet(
             stickerset=InputStickerSetShortName(short_name=replied.sticker.set_name)
