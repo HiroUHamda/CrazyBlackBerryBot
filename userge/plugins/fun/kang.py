@@ -94,7 +94,7 @@ async def kang_(message: Message):
         u_name = user.username
         u_name = "@" + u_name if u_name else user.first_name or user.id
         packname = f"a{user.id}_by_x_{pack}"
-        custom_packnick = Config.CUSTOM_PACK_NAME or f"{u_name}'s kang pack"
+        custom_packnick = Config.CUSTOM_PACK_NAME or f"Sticker das Amoras Loucas."
         packnick = f"{custom_packnick} Vol.{pack}"
         cmd = "/newpack"
         if resize:
@@ -159,7 +159,7 @@ async def kang_(message: Message):
                             out = (
                                 "__Roubado__"
                                 if "-s" in message.flags
-                                else f"[kanged](t.me/addstickers/{packname})"
+                                else f"[Roubado](t.me/addstickers/{packname})"
                             )
                             await message.edit(
                                 f"**Sticker** {out} __em um pack Diferente__**!**"
@@ -178,7 +178,7 @@ async def kang_(message: Message):
                 await conv.send_message("/done")
                 await conv.get_response(mark_read=True)
         else:
-            await message.edit("`Brewing a new Pack...`")
+            await message.edit("`Construindo um novo Pack, que castelo lindo!...`")
             async with userge.conversation("Stickers") as conv:
                 try:
                     await conv.send_message(cmd)
@@ -213,9 +213,9 @@ async def kang_(message: Message):
             out = (
                 "__roubado__"
                 if "-s" in message.flags
-                else f"[kanged](t.me/addstickers/{packname})"
+                else f"[roubado](t.me/addstickers/{packname})"
             )
-            await message.edit(f"**Sticker** {out}**com sucesso, me processa hehe!**")
+            await message.edit(f"**Sticker** {out} **com sucesso, me processa hehe!**")
         if os.path.exists(str(photo)):
             os.remove(photo)
 
@@ -274,16 +274,16 @@ def resize_photo(photo: str) -> io.BytesIO:
 
 
 KANGING_STR = (
-    "Using Witchery to kang this sticker...",
-    "Plagiarising hehe...",
-    "Inviting this sticker over to my pack...",
-    "Kanging this sticker...",
-    "Hey that's a nice sticker!\nMind if I kang?!..",
-    "hehe me stel ur stikér\nhehe.",
-    "Ay look over there (☉｡☉)!→\nWhile I kang this...",
-    "Roses are red violets are blue, kanging this sticker so my pacc looks cool",
-    "Imprisoning this sticker...",
-    "Mr.Steal Your Sticker is stealing this sticker... ",
+    "Usando Magia das Amoras loucas para roubar esse sticker...",
+    "Plagiando, me processa, hehe...",
+    "Usando o estalo do Thanos pra roubar teu sticker...",
+    "Roubando este Sticker com cautela, ops não veja agora...",
+    "Olha que sticker buritor!\nSerá que eu posso soubar? Sim?! Obrigado...",
+    "hehe NOSSO Sticker\nhehe.",
+    "Meu Deus, olha aquilo ali(☉｡☉)!→\nEnquanto eu roubo teu Sticker...",
+    "Rosa são azuis, violetas são vermelhas roubando seu sticker pro meu lindo pack...",
+    "Aprisionando teu sticker...",
+    "MEU Sticker, SEU Sticker, NOSSO Sticker... ",
 )
 
 
