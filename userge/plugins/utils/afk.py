@@ -46,8 +46,8 @@ async def active_afk(message: Message) -> None:
     TIME = time.time()
     REASON = message.input_str
     await asyncio.gather(
-        CHANNEL.log(f"You went AFK! : `{REASON}`"),
-        message.edit("`You went AFK!`", del_in=1),
+        CHANNEL.log(f"Você está Ausente! : `{REASON}`"),
+        message.edit("`Você está Ausente!`", del_in=1),
         AFK_COLLECTION.drop(),
         SAVED_SETTINGS.update_one(
             {"_id": "AFK"},
@@ -89,8 +89,8 @@ async def handle_afk_incomming(message: Message) -> None:
         if not (USERS[user_id][0] + USERS[user_id][1]) % randint(2, 4):
             if REASON:
                 out_str = (
-                    f"I'm still **AFK**.\nReason: <code>{REASON}</code>\n"
-                    f"Last Seen: `{afk_time} ago`"
+                    f"Por quê me incomodas? Eu tô **Ausente** no momento.\nReason: <code>{REASON}</code>\n"
+                    f"Última vez visto: `{afk_time} ago`"
                 )
             else:
                 out_str = choice(AFK_REASONS)
@@ -102,8 +102,8 @@ async def handle_afk_incomming(message: Message) -> None:
     else:
         if REASON:
             out_str = (
-                f"I'm **AFK** right now.\nReason: <code>{REASON}</code>\n"
-                f"Last Seen: `{afk_time} ago`"
+                f"Por quê me incomodas? Eu tô **Ausente** no momento.\nReason: <code>{REASON}</code>\n"
+                f"Última vez visto: `{afk_time} ago`"
             )
         else:
             out_str = choice(AFK_REASONS)
@@ -115,13 +115,13 @@ async def handle_afk_incomming(message: Message) -> None:
     if chat.type == "private":
         coro_list.append(
             CHANNEL.log(
-                f"#PRIVATE\n{user_dict['mention']} send you\n\n" f"{message.text}"
+                f"#PRIVADO\n{user_dict['mention']} send you\n\n" f"{message.text}"
             )
         )
     else:
         coro_list.append(
             CHANNEL.log(
-                "#GROUP\n"
+                "#GRUPO\n"
                 f"{user_dict['mention']} tagged you in [{chat.title}](http://t.me/{chat.username})\n\n"
                 f"{message.text}\n\n"
                 f"[goto_msg](https://t.me/c/{str(chat.id)[4:]}/{message.message_id})"
@@ -165,19 +165,19 @@ async def handle_afk_outgoing(message: Message) -> None:
                 g_count += gcount
         coro_list.append(
             replied.edit(
-                f"`You recieved {p_count + g_count} messages while you were away. "
-                f"Check log for more details.`\n\n**AFK time** : __{afk_time}__",
+                f"`Você recebeu {p_count + g_count} mensagens enquanto estava fora. "
+                f"Checa o LOG pra  obter mais detalhes`\n\n**Tempo em Ausência** : __{afk_time}__",
                 del_in=3,
             )
         )
         out_str = (
-            f"You've recieved **{p_count + g_count}** messages "
-            + f"from **{len(USERS)}** users while you were away!\n\n**AFK time** : __{afk_time}__\n"
+            f"Você recebeu **{p_count + g_count}** mensagens "
+            + f"de **{len(USERS)}** users enquanto estava fora!\n\n**AFK time** : __{afk_time}__\n"
         )
         if p_count:
-            out_str += f"\n**{p_count} Private Messages:**\n\n{p_msg}"
+            out_str += f"\n**{p_count} Mensagens Privadas:**\n\n{p_msg}"
         if g_count:
-            out_str += f"\n**{g_count} Group Messages:**\n\n{g_msg}"
+            out_str += f"\n**{g_count} Mensagens de Grupos:**\n\n{g_msg}"
         coro_list.append(CHANNEL.log(out_str))
         USERS.clear()
     else:
