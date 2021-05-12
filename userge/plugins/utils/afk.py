@@ -89,7 +89,7 @@ async def handle_afk_incomming(message: Message) -> None:
         if not (USERS[user_id][0] + USERS[user_id][1]) % randint(2, 4):
             if REASON:
                 out_str = (
-                    f"Por quê me incomodas? Eu tô **Ausente** no momento.\nReason: <code>{REASON}</code>\n"
+                    f"Por quê me incomodas? Eu tô **ausente** no momento.\nReason: <code>{REASON}</code>\n"
                     f"Última vez visto: `{afk_time} ago`"
                 )
             else:
@@ -102,7 +102,7 @@ async def handle_afk_incomming(message: Message) -> None:
     else:
         if REASON:
             out_str = (
-                f"Por quê me incomodas? Eu tô **Ausente** no momento.\nReason: <code>{REASON}</code>\n"
+                f"Por quê me incomodas? Eu tô **ausente** no momento.\nReason: <code>{REASON}</code>\n"
                 f"Última vez visto: `{afk_time} ago`"
             )
         else:
