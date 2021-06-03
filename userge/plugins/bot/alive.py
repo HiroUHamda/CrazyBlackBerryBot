@@ -225,15 +225,14 @@ class Bot_Alive:
         return link_type, link
 
     @staticmethod
-    def alive_info() -> str:
+   def alive_info() -> str:
         alive_info_ = f"""
-<a href=Deve tá funcionando, né1?</b>
-➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖
-  🐍   <b>Python :</b>    <code>v{versions.__python_version__}</code>
+<a href="https://telegram.dog/x_xtests"><b>BlackBerryBot</a> está vivo.</b>
+
   🔥   <b>Pyrogram :</b>    <code>v{versions.__pyro_version__}</code>
   🧬   <b>𝑿 :</b>    <code>v{get_version()}</code>
   👑  <b>My Master:</b>    @CrazyBlackBerryBot
-➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖
+ 
 <b>{Bot_Alive._get_mode()}</b>    <code>|</code>    🕔  <b>{userge.uptime}</b>
 """
         return alive_info_
@@ -259,7 +258,7 @@ class Bot_Alive:
     @staticmethod
     def alive_default_imgs() -> str:
         alive_imgs = [  
-            "https://telegra.ph/file/13896c7a27a47cc5a2436.jpg"
+            "https://telegra.ph/file/7bc9146da0434edbb9049.jpg"
         ]
         return rand_array(alive_imgs)
 
