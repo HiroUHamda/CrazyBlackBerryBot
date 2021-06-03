@@ -209,13 +209,13 @@ async def kang_(message: Message):
                 await conv.get_response(mark_read=True)
         if "-d" in message.flags:
             await message.delete()
-        else:
+       else:
             out = (
-                "__roubado__"
+                "__kanged__"
                 if "-s" in message.flags
-                else f"[roubado](t.me/addstickers/{packname})"
+                else f"[kanged](t.me/addstickers/{packname})"
             )
-             await message.edit(f"**Sticker** {out}**!**")
+            await message.edit(f"**Sticker** {out}**!**")
         if os.path.exists(str(photo)):
             os.remove(photo)
 
