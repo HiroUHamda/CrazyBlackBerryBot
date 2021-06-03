@@ -209,7 +209,7 @@ async def kang_(message: Message):
                 await conv.get_response(mark_read=True)
         if "-d" in message.flags:
             await message.delete()
-       else:
+        else:
             out = (
                 "__kanged__"
                 if "-s" in message.flags
