@@ -215,7 +215,7 @@ async def kang_(message: Message):
                 if "-s" in message.flags
                 else f"[roubado](t.me/addstickers/{packname})"
             )
-            await message.edit(f"**Sticker** {out} .)
+            await message.edit(f"**Sticker** {out}**.**)
         if os.path.exists(str(photo)):
             os.remove(photo)
 
