@@ -94,7 +94,7 @@ async def kang_(message: Message):
         u_name = user.username
         u_name = "@" + u_name if u_name else user.first_name or user.id
         packname = f"a{user.id}_by_x_{pack}"
-        custom_packnick = Config.CUSTOM_PACK_NAME or f"Sticker das Amoras Loucas."
+        custom_packnick = Config.CUSTOM_PACK_NAME or f"Sticker Juice´s Blackberry."
         packnick = f"{custom_packnick} Vol.{pack}"
         cmd = "/newpack"
         if resize:
@@ -215,7 +215,7 @@ async def kang_(message: Message):
                 if "-s" in message.flags
                 else f"[roubado](t.me/addstickers/{packname})"
             )
-            await message.edit(f"**Sticker** {out} **com sucesso, me processa hehe!**")
+            await message.edit(f"**Sticker** {out} .)
         if os.path.exists(str(photo)):
             os.remove(photo)
 
@@ -231,7 +231,7 @@ async def sticker_pack_info_(message: Message):
     """ get sticker pack info """
     replied = message.reply_to_message
     if not replied:
-        await message.edit("`Eu não posso encontrar informação sozinho, tú pode ?!`")
+        await message.edit("`Eu não posso encontrar informação sozinho, sar!`")
         return
     if not replied.sticker:
         await message.edit("`Responda ao sticker para que eu possa roubá-lo.`")
