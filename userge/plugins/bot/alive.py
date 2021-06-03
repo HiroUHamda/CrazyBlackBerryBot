@@ -223,16 +223,14 @@ class Bot_Alive:
                 message_id = match.group(3)
             link = [chat_id, int(message_id)]
         return link_type, link
-
+    
     @staticmethod
-   def alive_info() -> str:
+    def alive_info() -> str:
         alive_info_ = f"""
-<a href="https://telegram.dog/x_xtests"><b>BlackBerryBot</a> está vivo.</b>
-
+<a href="https://telegram.dog/x_xtests"><b>USERGE-X</a> is Up and Running.</b>
+  🐍   <b>Python :</b>    <code>v{versions.__python_version__}</code>
   🔥   <b>Pyrogram :</b>    <code>v{versions.__pyro_version__}</code>
   🧬   <b>𝑿 :</b>    <code>v{get_version()}</code>
-  👑  <b>My Master:</b>    @CrazyBlackBerryBot
- 
 <b>{Bot_Alive._get_mode()}</b>    <code>|</code>    🕔  <b>{userge.uptime}</b>
 """
         return alive_info_
