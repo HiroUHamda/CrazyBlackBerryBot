@@ -64,25 +64,8 @@ async def fun_(message: Message):
             fun = ";_ "
         fun = fun[:-1] + "_;"
         await message.try_to_edit(fun, parse_mode="html")
-        
-        
-        @userge.on_cmd(
-    r"(?:Kk)$",
-    about={"header": "Check yourself, hint: `kk`"},
-    name="Fun",
-    trigger="",
-    allow_via_bot=False,
-)
-async def fun_(message: Message):
-    """fun"""
-    fun = "k"
-    for i in range(9):
-        if i % 3 == 0:
-            fun = ";_ "
-        fun = fun[:-1] + "k"
-        await message.try_to_edit(fun, parse_mode="html")
 
-
+        
 @userge.on_cmd("Oof$", about={"header": "Ooooof"}, trigger="", allow_via_bot=False)
 async def Oof_(message: Message):
     """Oof"""
