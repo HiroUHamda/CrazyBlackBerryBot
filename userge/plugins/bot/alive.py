@@ -227,7 +227,7 @@ class Bot_Alive:
     @staticmethod
     def alive_info() -> str:
         alive_info_ = f"""
-<a href="https://telegram.dog/x_xtests"><b>BLACKBERRYBOT</a> is Up and Running.</b>
+<a href="https://telegram.dog/x_xtests"><b>BLACKBERRYBOT</a> is Online and Running!</b>
 + <b>{Bot_Alive._get_mode()}</b> -
 🟣 <b>{userge.uptime}</b>
   
