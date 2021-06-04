@@ -15,7 +15,7 @@ from userge.utils.exceptions import StopConversation
         "usage": "Reply {tr}q -l[message limit]",
         "examples": ["{tr}q", "{tr}q -l3"],
     },
-    allow_via_bot=False,
+    allow_via_bot=True,
     del_pre=True,
 )
 async def quotecmd(message: Message):
@@ -28,7 +28,7 @@ async def quotecmd(message: Message):
         if "l" in message.flags:
             limit = message.flags.get("l", 1)
             if not limit.isdigit():
-                await message.err("give valid no. of message to quote", del_in=5)
+                await message.err("Me dê um número válido para essa mensagem.", del_in=5)
                 return
             num_ = min(int(limit), 24)
             async for msg in userge.iter_history(
@@ -51,7 +51,7 @@ async def quotecmd(message: Message):
     else:
         await message.delete()
     if not args and len(quote_list) == 0:
-        await message.err("Reply to a message or provide an input to quote !", del_in=5)
+        await message.err("Responda a mensagem para que eu possa fazer o quote !", del_in=5)
         return
     try:
         async with userge.conversation("QuotLyBot", timeout=100) as conv:
@@ -65,11 +65,11 @@ async def quotecmd(message: Message):
                 elif args:
                     await conv.send_message(args)
             except YouBlockedUser:
-                await message.edit("first **unblock** @QuotLyBot")
+                await message.edit("primeiro **desbloqueie* @QuotLyBot")
                 return
             quote = await conv.get_response(mark_read=True)
             if not (quote.sticker or quote.document):
-                await message.err("something went wrong!")
+                await message.err("Aconteceu algo de errado!")
                 return
             message_id = reply.message_id if reply else None
             if quote.sticker:
@@ -86,5 +86,5 @@ async def quotecmd(message: Message):
                 )
     except StopConversation:
         await message.err(
-            "@QuotLyBot Didn't respond in time\n:(  please try again later...", del_in=5
+            "@QuotLyBot não está respondendo no momento\n:(  por favor, tente novamente mais tarde...", del_in=5
         )
