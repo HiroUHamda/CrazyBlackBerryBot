@@ -46,8 +46,8 @@ async def active_afk(message: Message) -> None:
     TIME = time.time()
     REASON = message.input_str
     await asyncio.gather(
-        CHANNEL.log(f"Você está Ausente! : `{REASON}`"),
-        message.edit("`Você está Ausente!`", del_in=1),
+        CHANNEL.log(f"Você está ausente! : `{REASON}`"),
+        message.edit("`Você está ausente!`", del_in=1),
         AFK_COLLECTION.drop(),
         SAVED_SETTINGS.update_one(
             {"_id": "AFK"},
@@ -89,7 +89,7 @@ async def handle_afk_incomming(message: Message) -> None:
         if not (USERS[user_id][0] + USERS[user_id][1]) % randint(2, 4):
             if REASON:
                 out_str = (
-                    f"Por quê me incomodas? Eu tô **ausente** no momento.\nReason: <code>{REASON}</code>\n"
+                    f"Eu estou **ausente** no momento, não me incomode.\nReason: <code>{REASON}</code>\n"
                     f"Última vez visto: `{afk_time} ago`"
                 )
             else:
@@ -102,7 +102,7 @@ async def handle_afk_incomming(message: Message) -> None:
     else:
         if REASON:
             out_str = (
-                f"Por quê me incomodas? Eu tô **ausente** no momento.\nReason: <code>{REASON}</code>\n"
+                f"Eu estou **ausente** no momento, não me incomode.\nReason: <code>{REASON}</code>\n"
                 f"Última vez visto: `{afk_time} ago`"
             )
         else:
@@ -166,7 +166,7 @@ async def handle_afk_outgoing(message: Message) -> None:
         coro_list.append(
             replied.edit(
                 f"`Você recebeu {p_count + g_count} mensagens enquanto estava fora. "
-                f"Checa o LOG pra  obter mais detalhes`\n\n**Tempo em Ausência** : __{afk_time}__",
+                f"Cheque o LOG para  obter mais detalhes`\n\n**Tempo em ausência** : __{afk_time}__",
                 del_in=3,
             )
         )
